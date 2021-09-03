@@ -6,7 +6,7 @@
 #    By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/30 20:37:01 by rcabezas          #+#    #+#              #
-#    Updated: 2021/08/31 12:41:05 by rcabezas         ###   ########.fr        #
+#    Updated: 2021/09/01 12:08:07 by rcabezas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ NAME = philo
 
 SRCS_PH = philo.c error.c ft.c
 
-SRCS_DIR = /srcs/
+SRCS_DIR = srcs/
 
-INCLUDES = /includes/
+INCLUDES = includes/
 
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_PH))
 
