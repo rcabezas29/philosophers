@@ -6,13 +6,13 @@
 #    By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/30 20:37:01 by rcabezas          #+#    #+#              #
-#    Updated: 2021/09/01 12:08:07 by rcabezas         ###   ########.fr        #
+#    Updated: 2021/09/04 21:44:10 by rcabezas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
-SRCS_PH = philo.c error.c ft.c
+SRCS_PH = philo.c error.c ft.c actions.c
 
 SRCS_DIR = srcs/
 
@@ -24,7 +24,7 @@ OBJS = $(SRCS:.c=.o)
 
 RM = rm -rf
 
-CFLAGS = gcc -Wall -Wextra -Werror
+CFLAGS = gcc -Wall -Wextra -Werror -lpthread
 
 all: $(NAME)
 

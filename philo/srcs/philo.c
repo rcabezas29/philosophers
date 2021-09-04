@@ -6,11 +6,24 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 20:30:29 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/03 10:36:31 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/04 21:46:31 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <philo.h>
+
+void	create_forks(t_data *d)
+{
+	int	i;
+
+	i = 0;
+	d->forks = malloc(sizeof(pthread_mutex_t) * d->no_philos);
+	while (i < d->no_philos)
+	{
+		pthread_mutexattr_init(&d->forks[i]);
+		i++;
+	}
+}
 
 void	waiting_room(t_data *d)
 {
@@ -26,7 +39,9 @@ void	waiting_room(t_data *d)
 
 void	*philo_do(void *arg)
 {
-	printf("Soy el filosofo %i\n", *(int *)arg);
+	philo_eat();
+	philo_sleep();
+	philo_think();
 	return (0);
 }
 
@@ -66,6 +81,7 @@ int	main(int argc, char **argv)
 	d = malloc(sizeof(t_philo));
 	ft_bzero(d, sizeof(t_philo));
 	init_args(d, argv, argc);
+	create_forks(d);
 	create_philos(d);
 	waiting_room(d);
 }
