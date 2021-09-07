@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 20:29:07 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/06 17:26:58 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/07 10:49:24 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_philo
 	pthread_mutex_t *left_fork;
 	pthread_mutex_t *right_fork;
 	uint64_t	start_time;
+	struct timeval	last_meal;
 }	t_philo;
 
 typedef struct s_data
@@ -50,9 +51,13 @@ typedef struct s_data
 
 //philo.c
 int		main(int argc, char **argv);
+void	waiting_room(t_data *d);
+void	looking_for_die(t_data *d);
+void	*philo_do(void *arg);
+
+//init.c
 void	init_args(t_data *d, char **argv, int argc);
 void	create_philos(t_data *d);
-void	waiting_room(t_data *d);
 void	create_forks(t_data *d);
 void	philo_chars(t_data *d, int i);
 
