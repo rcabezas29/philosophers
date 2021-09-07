@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 10:47:22 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/07 10:48:25 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/07 17:48:31 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,6 @@ void	create_forks(t_data *d)
 	}
 }
 
-void	init_args(t_data *d, char **argv, int argc)
-{
-	d->no_philos = ft_atoi(argv[1]);
-	d->time_to_die = ft_atoi(argv[2]);
-	d->time_to_eat = ft_atoi(argv[3]);
-	d->time_to_sleep = ft_atoi(argv[4]);
-	if (argc == 6)
-		d->eating_times = ft_atoi(argv[5]);
-}
-
 void	create_philos(t_data *d)
 {
 	int i;
@@ -50,8 +40,19 @@ void	create_philos(t_data *d)
 	}
 }
 
+void	init_args(t_data *d, char **argv, int argc)
+{
+	d->no_philos = ft_atoi(argv[1]);
+	d->time_to_die = ft_atoi(argv[2]);
+	d->time_to_eat = ft_atoi(argv[3]);
+	d->time_to_sleep = ft_atoi(argv[4]);
+	if (argc == 6)
+		d->eating_times = ft_atoi(argv[5]);
+}
+
 void	philo_chars(t_data *d, int i)
 {
+	d->philos[i].died = &d->died;
 	d->philos[i].start_time = d->start_time;
 	d->philos[i].id = i + 1;
 	d->philos[i].time_to_eat = d->time_to_eat;

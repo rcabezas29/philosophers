@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 20:30:29 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/07 10:48:20 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/07 17:53:35 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,13 @@ void	looking_for_die(t_data *d)
 {
 	int	i;
 
-	while (1)
+	while (d->died != 1)
 	{
 		i = 0;
 		while (i < d->no_philos)
 		{
-			printf("last_meal: %llu\n", get_time(get_timeval_ms(&d->philos[i].last_meal)));
 			if ((uint64_t)d->philos[i].time_to_eat < get_time(get_timeval_ms(&d->philos[i].last_meal)))
-				waiting_room(d);
+				philo_die(&d->philos[i]);
 			i++;
 		}
 	}
@@ -43,13 +42,16 @@ void	waiting_room(t_data *d)
 
 void	*philo_do(void *arg)
 {
-	while (1)
+	t_philo	*philo;
+
+	philo = (t_philo *)arg;
+	while (*philo->died != 1)
 	{
-		philo_eat((t_philo *)arg);
-		philo_sleep((t_philo *)arg);
-		philo_think((t_philo *)arg);
+		philo_eat(philo);
+		philo_sleep(philo);
+		philo_think(philo);
 	}
-	return (0);
+	return (NULL);
 }
 
 int	main(int argc, char **argv)
@@ -67,5 +69,5 @@ int	main(int argc, char **argv)
 	create_forks(d);
 	create_philos(d);
 	looking_for_die(d);
-	//waiting_room(d);
+	waiting_room(d);
 }
