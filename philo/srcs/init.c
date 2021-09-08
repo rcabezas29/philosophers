@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 10:47:22 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/07 17:48:31 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/08 17:10:19 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	init_args(t_data *d, char **argv, int argc)
 
 void	philo_chars(t_data *d, int i)
 {
+	gettimeofday(&d->philos[i].last_meal, NULL);
 	d->philos[i].died = &d->died;
 	d->philos[i].start_time = d->start_time;
 	d->philos[i].id = i + 1;
