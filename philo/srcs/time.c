@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 13:41:07 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/09 10:34:56 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/09 12:34:20 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ uint64_t	get_timeval_ms(struct timeval *time)
 
 void	start_time(t_data *d)
 {
-	struct timeval t;
+	struct timeval	t;
 
 	gettimeofday(&t, NULL);
 	d->start_time = get_timeval_ms(&t);
@@ -27,8 +27,8 @@ void	start_time(t_data *d)
 
 uint64_t	get_time(uint64_t start_time)
 {
-	struct timeval time;
-	
+	struct timeval	time;
+
 	gettimeofday(&time, NULL);
-	return(get_timeval_ms(&time) - start_time);
+	return (get_timeval_ms(&time) - start_time);
 }
