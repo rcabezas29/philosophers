@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 20:30:29 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/09 12:33:32 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/09 12:59:56 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,17 @@ void	*philo_do(void *arg)
 	return (NULL);
 }
 
+void	hola(void)
+{
+	system("leaks philo");
+}
+
 int	main(int argc, char **argv)
 {
-	t_philo	*p;
 	t_data	*d;
 
 	if (argc != 5 && argc != 6)
 		error_handling(1);
-	p = malloc(sizeof(t_philo));
-	ft_bzero(p, sizeof(t_philo));
 	d = malloc(sizeof(t_philo));
 	ft_bzero(d, sizeof(t_philo));
 	init_args(d, argv, argc);
@@ -71,4 +73,8 @@ int	main(int argc, char **argv)
 	create_philos(d);
 	looking_for_die(d);
 	waiting_room(d);
+	free(d->philos);
+	free(d->forks);
+	free(d);
+	return (0);
 }
