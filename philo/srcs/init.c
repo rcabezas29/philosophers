@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 10:47:22 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/08 17:10:19 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/09 12:33:07 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	create_forks(t_data *d)
 
 void	create_philos(t_data *d)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	d->philos = malloc(sizeof(t_philo) * d->no_philos);
 	start_time(d);

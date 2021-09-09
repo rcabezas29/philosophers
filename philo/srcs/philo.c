@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 20:30:29 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/08 18:45:15 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/09 12:33:32 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	looking_for_die(t_data *d)
 		i = 0;
 		while (i < d->no_philos)
 		{
-			if ((uint64_t)d->philos[i].time_to_die < get_time(get_timeval_ms(&d->philos[i].last_meal)))
+			if ((uint64_t)d->philos[i].time_to_die
+				< get_time(get_timeval_ms(&d->philos[i].last_meal)))
 				philo_die(&d->philos[i]);
 			i++;
 		}
@@ -33,7 +34,7 @@ void	waiting_room(t_data *d)
 	int	i;
 
 	i = 0;
-	while(i < d->no_philos)
+	while (i < d->no_philos)
 	{
 		pthread_join(d->philos[i].thread, NULL);
 		i++;
