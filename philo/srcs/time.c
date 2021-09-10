@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 13:41:07 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/09 15:16:53 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/10 12:19:52 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ uint64_t	get_time(uint64_t start_time)
 void	ft_usleep(uint64_t millisec)
 {
 	struct timeval	start;
-	uint64_t time;
-	uint64_t end_ms;
+	uint64_t		time;
+	uint64_t		end_ms;
 
 	gettimeofday(&start, NULL);
 	time = get_timeval_ms(&start);

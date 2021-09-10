@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 20:29:07 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/10 10:10:29 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/10 12:00:01 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void		looking_for_die(t_data *d);
 void		*philo_do(void *arg);
 
 //init.c
-void		init_args(t_data *d, char **argv, int argc);
+int			init_args(t_data *d, char **argv, int argc);
 void		create_philos(t_data *d);
 void		create_forks(t_data *d);
 void		philo_chars(t_data *d, int i);
