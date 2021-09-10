@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 20:30:29 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/10 10:10:25 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/10 12:21:21 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	looking_for_die(t_data *d)
 			if ((uint64_t)d->philos[i].time_to_die
 				< get_time(get_timeval_ms(&d->philos[i].last_meal)))
 				philo_die(&d->philos[i]);
-			if (d->eating_times != 0 && d->philos[i].eaten_times == d->eating_times)
+			if (d->eating_times != 0
+				&& d->philos[i].eaten_times == d->eating_times)
 				d->philos[i].ate = 1;
 			i++;
 		}
@@ -62,10 +63,17 @@ int	main(int argc, char **argv)
 	t_data	*d;
 
 	if (argc != 5 && argc != 6)
-		error_handling(1);
+	{
+		printf("Error - Wrong arguments\n");
+		return (0);
+	}
 	d = malloc(sizeof(t_philo));
 	ft_bzero(d, sizeof(t_philo));
-	init_args(d, argv, argc);
+	if (!init_args(d, argv, argc))
+	{
+		printf("Error - Wrong arguments\n");
+		return (0);
+	}
 	create_forks(d);
 	create_philos(d);
 	looking_for_die(d);

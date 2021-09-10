@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 10:47:22 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/09 12:50:45 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/10 12:22:22 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,26 +40,27 @@ void	create_philos(t_data *d)
 	}
 }
 
-void	init_args(t_data *d, char **argv, int argc)
+int	init_args(t_data *d, char **argv, int argc)
 {
 	d->no_philos = ft_atoi(argv[1]);
-	if (d->no_philos > 200)
-		error_handling(1);
+	if (d->no_philos > 200 || d->no_philos < 1)
+		return (0);
 	d->time_to_die = ft_atoi(argv[2]);
 	if (d->time_to_die < 0)
-		error_handling(1);
+		return (0);
 	d->time_to_eat = ft_atoi(argv[3]);
 	if (d->time_to_eat < 0)
-		error_handling(1);
+		return (0);
 	d->time_to_sleep = ft_atoi(argv[4]);
 	if (d->time_to_sleep < 0)
-		error_handling(1);
+		return (0);
 	if (argc == 6)
 	{
 		d->eating_times = ft_atoi(argv[5]);
 		if (d->eating_times < 1)
-			error_handling(1);
+			return (0);
 	}
+	return (1);
 }
 
 void	philo_chars(t_data *d, int i)

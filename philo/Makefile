@@ -6,13 +6,13 @@
 #    By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/30 20:37:01 by rcabezas          #+#    #+#              #
-#    Updated: 2021/09/09 20:48:15 by rcabezas         ###   ########.fr        #
+#    Updated: 2021/09/10 12:00:44 by rcabezas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
-SRCS_PH = philo.c error.c ft.c actions.c time.c init.c
+SRCS_PH = philo.c ft.c actions.c time.c init.c
 
 SRCS_DIR = srcs/
 
