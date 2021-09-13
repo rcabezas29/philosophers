@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/04 21:43:16 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/10 09:23:52 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/13 20:38:30 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	philo_think(t_philo *philo)
 	if (*philo->died != 1 && philo->ate != 1)
 		printf("[%llu] - (%i) is thinking 💭\n",
 			get_time(philo->start_time), philo->id);
+	usleep(10);
 }
 
 void	philo_die(t_philo *philo)
