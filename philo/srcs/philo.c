@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 20:30:29 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/13 20:40:40 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/14 18:04:25 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,7 @@ void	looking_for_die(t_data *d)
 				philo_die(&d->philos[i]);
 			if (d->eating_times != 0
 				&& d->philos[i].eaten_times == d->eating_times)
-				{
-					d->philos[i].ate = 1;
-					printf("El filosofo %i ya ha comido\n", d->philos[i].id);
-				}
+				d->philos[i].ate = 1;
 			i++;
 		}
 	}
