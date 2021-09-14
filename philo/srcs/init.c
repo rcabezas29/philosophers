@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 10:47:22 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/10 12:22:22 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/14 20:08:04 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	create_philos(t_data *d)
 
 int	init_args(t_data *d, char **argv, int argc)
 {
+	if (!check_args(argv))
+		return (0);
 	d->no_philos = ft_atoi(argv[1]);
 	if (d->no_philos > 200 || d->no_philos < 1)
 		return (0);

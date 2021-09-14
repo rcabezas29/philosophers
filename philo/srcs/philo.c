@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 20:30:29 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/14 18:04:25 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/14 18:50:56 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,10 @@ void	*philo_do(void *arg)
 	while (*philo->died != 1 && philo->ate != 1)
 	{
 		philo_eat(philo);
-		philo_sleep(philo);
-		philo_think(philo);
+		if (philo->ate != 1)
+			philo_sleep(philo);
+		if (philo->ate != 1)
+			philo_think(philo);
 	}
 	return (NULL);
 }
