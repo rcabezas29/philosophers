@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 20:29:07 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/10 12:00:01 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/14 20:08:20 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ void		philo_chars(t_data *d, int i);
 //ft.c
 int			ft_atoi(const char *str);
 void		ft_bzero(void *s, size_t n);
+int			ft_isdigit(int c);
+int			check_args(char **argv);
 
 //error.c
 void		error_handling(int error);
