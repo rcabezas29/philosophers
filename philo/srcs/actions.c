@@ -43,17 +43,6 @@ void	philo_think(t_philo *philo)
 	usleep(50);
 }
 
-void	philo_die(t_philo *philo)
-{
-	pthread_mutex_lock(&philo->protection);
-	*philo->died = 1;
-	pthread_detach(philo->thread);
-	if (philo->ate != 1)
-		printf("[%llu] - (%i) died 💀\n",
-			get_time(philo->start_time), philo->id);
-	pthread_mutex_unlock(&philo->protection);
-}
-
 void	philo_take_fork(t_philo *philo)
 {
 	if (philo->id % 2)
