@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 20:29:07 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/14 20:08:20 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/15 17:19:48 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_philo
 	struct timeval	last_meal;
 	int				*died;
 	int				ate;
+	pthread_mutex_t	protection;
 }	t_philo;
 
 typedef struct s_data
