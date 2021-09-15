@@ -23,7 +23,11 @@ void	looking_for_die(t_data *d)
 		{
 			if ((uint64_t)d->philos[i].time_to_die
 				< get_time(get_timeval_ms(&d->philos[i].last_meal)))
-				philo_die(&d->philos[i]);
+			{
+				printf("[%llu] - (%i) died 💀\n",
+					get_time(d->philos[i].start_time), d->philos[i].id);
+				*d->philos[i].died = 1;
+			}
 			if (d->eating_times != 0
 				&& d->philos[i].eaten_times == d->eating_times)
 				d->philos[i].ate = 1;
