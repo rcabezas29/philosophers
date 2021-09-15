@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/04 21:43:16 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/14 18:57:58 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/15 17:20:51 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	philo_eat(t_philo *philo)
 {
+	pthread_mutex_lock(&philo->protection);
 	philo_take_fork(philo);
 	if (*philo->died != 1)
 		printf("[%llu] - (%i) is eating 🍝\n",
@@ -23,6 +24,7 @@ void	philo_eat(t_philo *philo)
 	philo->eaten_times += 1;
 	pthread_mutex_unlock(philo->right_fork);
 	pthread_mutex_unlock(philo->left_fork);
+	pthread_mutex_unlock(&philo->protection);
 }
 
 void	philo_sleep(t_philo *philo)
@@ -43,11 +45,13 @@ void	philo_think(t_philo *philo)
 
 void	philo_die(t_philo *philo)
 {
+	pthread_mutex_lock(&philo->protection);
 	*philo->died = 1;
 	pthread_detach(philo->thread);
 	if (philo->ate != 1)
 		printf("[%llu] - (%i) died 💀\n",
 			get_time(philo->start_time), philo->id);
+	pthread_mutex_unlock(&philo->protection);
 }
 
 void	philo_take_fork(t_philo *philo)
