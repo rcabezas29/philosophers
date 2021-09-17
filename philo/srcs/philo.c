@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 20:30:29 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/14 18:50:56 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/17 11:46:44 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ void	looking_for_die(t_data *d)
 			if ((uint64_t)d->philos[i].time_to_die
 				< get_time(get_timeval_ms(&d->philos[i].last_meal)))
 			{
-				printf("[%llu] - (%i) died 💀\n",
-					get_time(d->philos[i].start_time), d->philos[i].id);
+				if (*d->philos[i].died != 1)
+					printf("[%llu] - (%i) died 💀\n",
+						get_time(d->philos[i].start_time), d->philos[i].id);
 				*d->philos[i].died = 1;
+				pthread_detach(d->philos[i].thread);
 			}
 			if (d->eating_times != 0
 				&& d->philos[i].eaten_times == d->eating_times)
