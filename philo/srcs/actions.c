@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/04 21:43:16 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/15 17:20:51 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/17 11:53:28 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	philo_eat(t_philo *philo)
 		printf("[%llu] - (%i) is eating 🍝\n",
 			get_time(philo->start_time), philo->id);
 	gettimeofday(&philo->last_meal, NULL);
-	ft_usleep(philo->time_to_eat);
+	ft_usleep(philo->no_philos, philo->time_to_eat);
 	philo->eaten_times += 1;
 	pthread_mutex_unlock(philo->right_fork);
 	pthread_mutex_unlock(philo->left_fork);
@@ -32,7 +32,7 @@ void	philo_sleep(t_philo *philo)
 	if (*philo->died != 1)
 		printf("[%llu] - (%i) is sleeping 💤\n",
 			get_time(philo->start_time), philo->id);
-	ft_usleep(philo->time_to_sleep);
+	ft_usleep(philo->no_philos, philo->time_to_sleep);
 }
 
 void	philo_think(t_philo *philo)

@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 20:29:07 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/15 17:19:48 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/17 11:54:03 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,5 @@ void		philo_take_fork(t_philo *philo);
 uint64_t	get_timeval_ms(struct timeval *time);
 void		start_time(t_data *d);
 uint64_t	get_time(uint64_t start_time);
-void		ft_usleep(uint64_t milisec);
+void		ft_usleep(int no_philos, uint64_t millisec);
 #endif
