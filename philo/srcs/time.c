@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 13:41:07 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/09/10 12:19:52 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/09/17 11:54:13 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ uint64_t	get_time(uint64_t start_time)
 	return (get_timeval_ms(&time) - start_time);
 }
 
-void	ft_usleep(uint64_t millisec)
+void	ft_usleep(int no_philos, uint64_t millisec)
 {
 	struct timeval	start;
 	uint64_t		time;
@@ -46,6 +46,6 @@ void	ft_usleep(uint64_t millisec)
 	{
 		gettimeofday(&start, NULL);
 		time = get_timeval_ms(&start);
-		usleep(1);
+		usleep(no_philos);
 	}
 }
