@@ -6,6 +6,8 @@ The Dining Philosophers Problem is a classic synchronization problem proposed by
 
 Five philosophers sit at a table and spend their lives thinking, sleeping and eating. Between each philosopher is a single fork. In order to eat, a philosopher must use two forks. The objective is to design a protocol that allows the philosophers to eat without starving themselves or each other.
 
+![Dining Philosophers](img/Dining_Philosophers.png)
+
 ## Implementation
 
 This implementation uses POSIX threads (pthreads) for creating threads representing each philosopher and simulates their actions. It also uses mutexes to handle the synchronization problem related to the usage of forks.
